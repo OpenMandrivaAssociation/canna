@@ -15,6 +15,7 @@ Source:		Canna%{filever}.tar.bz2
 Source1:	canna.init
 Patch1:		canna-3.7p1-config.patch
 Patch2:		canna-3.7p1-buildfix.patch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	locales-ja
 BuildRequires:	X11-devel imake
 
