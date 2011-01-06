@@ -15,9 +15,10 @@ Source:		Canna%{filever}.tar.bz2
 Source1:	canna.init
 Patch1:		canna-3.7p1-config.patch
 Patch2:		canna-3.7p1-buildfix.patch
+Patch3:		canna-3.7p1-fix-str-fmt.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	locales-ja
-BuildRequires:	X11-devel imake
+BuildRequires:	imake
 
 # this is for serviceadd, etc.
 Requires(post): rpm-helper
@@ -52,11 +53,12 @@ Headers and libraries of Canna for development.
 %setup -q -n Canna%{filever}
 %patch1 -b .conf
 %patch2 -b .build
+%patch3 -b .str
 
 %build
 prefix=/usr xmkmf
 # make -j2 doesn't work
-make canna
+make canna EXTRA_LDOPTIONS="%ldflags" CCOPTIONS="%optflags"
 
 %install
 rm -rf $RPM_BUILD_ROOT
