@@ -51,13 +51,12 @@ Headers and libraries of Canna for development.
 
 %prep
 %setup -q -n Canna%{filever}
-%patch1 -b .conf
-%patch2 -b .build
-%patch3 -b .str
+%patch1 -p0 -b .conf
+%patch2 -p0 -b .build
+%patch3 -p0 -b .str
 
 %build
-prefix=/usr xmkmf
-# make -j2 doesn't work
+xmkmf
 make canna EXTRA_LDOPTIONS="%ldflags" CCOPTIONS="%optflags"
 
 %install
