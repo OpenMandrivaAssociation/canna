@@ -1,6 +1,6 @@
 %define version 3.7p3
 %define filever 37p3
-%define release %mkrel 12
+%define release %mkrel 13
 %define	major	1
 %define	libname	%mklibname canna %{major}
 
