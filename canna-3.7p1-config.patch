@@ -1,0 +1,66 @@
+--- Canna.conf.dist	2003-12-28 17:10:30.000000000 +0100
++++ Canna.conf	2004-02-03 00:50:26.665100761 +0100
+@@ -109,12 +109,12 @@
+ # define DefErrDir $(cannaPrefix)/log
+ # define DefLibCannaDir $(cannaExecPrefix)/lib
+ #else 
+-# define DefCannaPrefix /usr/local/canna
++# define DefCannaPrefix /usr
+ # ifdef ObsoleteInstallDir
+ #  define DefErrDir /usr/spool/canna
+ #  define DefLibCannaDir /usr/lib
+ # else
+-#  define DefErrDir /var/log
++#  define DefErrDir /var/log/canna
+ #  define DefLibCannaDir $(cannaExecPrefix)/lib
+ # endif
+ #endif
+@@ -144,11 +144,8 @@
+ cannaExecPrefix = $(cannaPrefix)
+ cannaBinDir = $(cannaExecPrefix)/bin
+ cannaSrvDir = DefCannaSrvDir
+-XCOMM cannaLibDir = /var/lib/canna
+-XCOMM cannaLibDir = /var/db/canna
+-cannaLibDir = DefCannaLibDir
+-XCOMM cannaManDir = $(cannaPrefix)/share/man
+-cannaManDir = $(cannaPrefix)/man
++cannaLibDir = /var/lib/canna
++cannaManDir = $(cannaPrefix)/share/man
+ cannaIncDir = $(cannaPrefix)/include/canna
+ 
+ libCannaDir = DefLibCannaDir
+@@ -169,14 +166,10 @@
+ #define ModernElfLink NO /* experimental */
+ 
+ 
+-cannaOwner = bin
+-cannaGroup = bin
++cannaOwner = canna
++cannaGroup = canna
+ 
+-#ifdef InstallAsUser
+ cannaOwnerGroup =
+-#else
+-cannaOwnerGroup = -o $(cannaOwner) -g $(cannaGroup)
+-#endif
+ 
+ cannaDsoRev = 1.2
+ 
+@@ -194,15 +187,9 @@
+ /* iroha.t の場所を指定。pubdic+ があればそちらを指定します。 */
+ pubdicDir = $(CANNAROOT)/dic/ideo/pubdic
+ 
+-#ifdef InstallAsUser
+-CHOWN = :
+-CHGRP = :
+-CHMOD = :
+-#else
+-CHOWN = chown
+-CHGRP = chgrp
++CHOWN = echo
++CHGRP = echo
+ CHMOD = chmod
+-#endif
+ 
+ /* 日本語マニュアルを使わないのであればコメントアウト */
+ #define JAPANESEMAN

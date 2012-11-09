@@ -1,0 +1,11 @@
+--- ./lib/canna/lisp.c.tv	2006-04-04 19:26:34.000000000 +0200
++++ ./lib/canna/lisp.c	2006-04-04 19:26:40.000000000 +0200
+@@ -1355,8 +1355,6 @@
+ static int
+ tyi()
+ {
+-  char *gets(), *fgets();
+-
+   if (untyibuf) {
+     int ret = untyibuf[--untyip];
+     if (untyip == 0) {
