@@ -122,3 +122,66 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so
 %{_includedir}/*
 
+
+
+%changelog
+* Wed Feb 02 2011 Funda Wang <fwang@mandriva.org> 3.7p3-13mdv2011.0
++ Revision: 635026
+- rebuild
+- fix build
+- fix str fmt
+
+* Thu Dec 09 2010 Oden Eriksson <oeriksson@mandriva.com> 3.7p3-12mdv2011.0
++ Revision: 616938
+- the mass rebuild of 2010.0 packages
+
+* Thu Sep 10 2009 Thierry Vignaud <tv@mandriva.org> 3.7p3-11mdv2010.0
++ Revision: 436929
+- rebuild
+
+* Fri Mar 06 2009 Antoine Ginies <aginies@mandriva.com> 3.7p3-10mdv2009.1
++ Revision: 350661
+- rebuild
+
+* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 3.7p3-9mdv2009.0
++ Revision: 243433
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Wed Jan 02 2008 Olivier Blin <oblin@mandriva.com> 3.7p3-7mdv2008.1
++ Revision: 140691
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+
+* Sun Feb 04 2007 Christiaan Welvaart <cjw@daneel.dyndns.org>
++ 2007-02-04 13:45:47 (116150)
+- rebuild for 2007.1
+- Import canna
+
+* Thu Jun 08 2006 Per Øyvind Karlsen <pkarlsen@mandriva.com> 3.7p3-6mdv2007.0
+- fix buildrequires
+- fix executable-marked-as-config-file
+- fix summary-ended-with-dot
+
+* Wed Apr 05 2006 Thierry Vignaud <tvignaud@mandriva.com> 3.7p3-5mdk
+- patch 2: fix build (#21834)
+
+* Fri Aug 12 2005 Nicolas Lécureuil <neoclust@mandriva.org> 3.7p3-4mdk
+- fix rpmlint errors (PreReq)
+
+* Fri Aug 12 2005 Nicolas Lécureuil <neoclust@mandriva.org> 3.7p3-3mdk
+- fix rpmlint errors (PreReq)
+
+* Sat Jul 09 2005 Thierry Vignaud <tvignaud@mandrakesoft.com> 3.7p3-2mdk
+- fix build on x86_64
+
+* Sat Jul 31 2004 Thierry Vignaud <tvignaud@mandrakesoft.com> 3.7p3-1mdk
+- new release
+- fix buildrequires
+- add proper prereq
+

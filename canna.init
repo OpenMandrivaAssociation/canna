@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# chkconfig: 2345 90 12
+# description: Canna Japanese Conversion Engine
+#
+# canna         Canna server
+#
+# Author       Manabe Takashi <manabe@Roy.dsl.tutics.tut.ac.jp>
+# Modifier     Atsushi Yamagata <yamagata@jwu.ac.jp>
+# Modifier 22 Jan 1999 Atsushi Yamagata <yamagata@plathome.co.jp>
+# Modifier 23 Jun 1999 Shoichiro Nagata <nagata@mach.ee.miyazaki-u.ac.jp>
+
+# Source function library.
+. /etc/init.d/functions
+ 
+PATH=$PATH:/usr/sbin
+SERVER=cannaserver
+KILLER=cannakill
+prog="$SERVER"
+
+
+[ -f /usr/sbin/$SERVER ] || exit 0
+ 
+start() {
+        rm -f /tmp/.iroha_unix/IROHA
+        echo -n $"Starting $prog: "
+        daemon $prog -syslog -u canna
+	echo
+	touch /var/lock/subsys/canna
+}
+
+stop() {
+        action "Stopping $prog:" $KILLER 2> /dev/null
+        rm -f /tmp/.iroha_unix/IROHA
+        rm -f /var/lock/subsys/canna
+}
+
+case "$1" in
+  start)
+	start
+        ;;
+  stop)
+	stop
+        ;;
+  status)
+        status cannaserver
+        ;;
+  restart|reload)
+        stop
+        start
+        ;;
+  condrestart)
+	if [ -f /var/lock/subsys/canna ]; then
+	    stop
+	    start
+	fi
+	;;
+  *)
+        echo $"Usage: $0 {start|stop|restart|condrestart|status}"
+        exit 1
+esac
+
+exit 0
