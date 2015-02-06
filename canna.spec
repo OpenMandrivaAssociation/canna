@@ -5,7 +5,7 @@
 Name:		canna
 Summary:	Japanese Kana-Kanji translation engine
 Version:	3.7p3
-Release:	17
+Release:	18
 License:	MIT
 Group:		System/Internationalization
 URL:		http://sourceforge.jp/projects/canna/
