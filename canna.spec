@@ -8,7 +8,7 @@ Version:	3.7p3
 Release:	18
 License:	MIT
 Group:		System/Internationalization
-URL:		http://sourceforge.jp/projects/canna/
+URL:		https://sourceforge.jp/projects/canna/
 Source:		Canna%{filever}.tar.bz2
 Source1:	canna.service
 Source2:	canna-tmpfiles.conf
