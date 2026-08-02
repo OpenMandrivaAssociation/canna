@@ -1,6 +1,6 @@
---- Canna.conf.dist	2003-12-28 17:10:30.000000000 +0100
-+++ Canna.conf	2004-02-03 00:50:26.665100761 +0100
-@@ -109,12 +109,12 @@
+--- Canna.conf.dist
++++ Canna.conf
+@@ -108,12 +108,12 @@
  # define DefErrDir $(cannaPrefix)/log
  # define DefLibCannaDir $(cannaExecPrefix)/lib
  #else 
@@ -15,7 +15,7 @@
  #  define DefLibCannaDir $(cannaExecPrefix)/lib
  # endif
  #endif
-@@ -144,11 +144,8 @@
+@@ -143,11 +143,8 @@
  cannaExecPrefix = $(cannaPrefix)
  cannaBinDir = $(cannaExecPrefix)/bin
  cannaSrvDir = DefCannaSrvDir
@@ -29,8 +29,8 @@
  cannaIncDir = $(cannaPrefix)/include/canna
  
  libCannaDir = DefLibCannaDir
-@@ -169,14 +166,10 @@
- #define ModernElfLink NO /* experimental */
+@@ -175,14 +172,10 @@
+ #endif
  
  
 -cannaOwner = bin
@@ -44,9 +44,9 @@
 -cannaOwnerGroup = -o $(cannaOwner) -g $(cannaGroup)
 -#endif
  
- cannaDsoRev = 1.2
- 
-@@ -194,15 +187,9 @@
+ cannaShLibMajor = 1
+ cannaDsoRev = $(cannaShLibMajor).2
+@@ -200,15 +193,9 @@
  /* iroha.t の場所を指定。pubdic+ があればそちらを指定します。 */
  pubdicDir = $(CANNAROOT)/dic/ideo/pubdic
  

@@ -1,15 +1,15 @@
-%define filever 37p3
+%define filever 38
 %define	major	1
 %define	libname	%mklibname canna %{major}
 
 Name:		canna
 Summary:	Japanese Kana-Kanji translation engine
-Version:	3.7p3
-Release:	18
+Version:	3.8
+Release:	1
 License:	MIT
 Group:		System/Internationalization
-URL:		https://sourceforge.jp/projects/canna/
-Source:		Canna%{filever}.tar.bz2
+URL:		https://canna-input.github.io/
+Source:		https://github.com/canna-input/canna/releases/download/release-%{version}/Canna%{filever}.tar.xz
 Source1:	canna.service
 Source2:	canna-tmpfiles.conf
 Patch1:		canna-3.7p1-config.patch
@@ -49,9 +49,9 @@ Headers and libraries of Canna for development.
 
 %prep
 %setup -q -n Canna%{filever}
-%patch1 -p0 -b .conf
-%patch2 -p0 -b .build
-%patch3 -p0 -b .str
+%patch -P1 -p0 -b .conf
+%patch -P2 -p0 -b .build
+%patch -P3 -p0 -b .str
 
 %build
 xmkmf
